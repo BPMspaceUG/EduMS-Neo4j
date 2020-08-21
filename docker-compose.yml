@@ -8,11 +8,13 @@ services:
     volumes:
         - ./project:/project
         - ./dockerconf/site.conf:/etc/nginx/conf.d/default.conf
+    links:
+        - EduMSphp
 
  EduMSphp:
     image: 7-fpm-neo4j-php-ogm:latest
     volumes:
-        - .:/project
+        - ./project:/project
     working_dir: /project
 
  EduMSNeo4j:
@@ -27,5 +29,4 @@ services:
     - ./neo4j/logs:/logs
     - ./neo4j/plugins:/plugins
   environment: 
-    # Raise memory limits
     - NEO4J_AUTH=neo4j/54657890at
