@@ -63,7 +63,15 @@ class Account
      * @OGM\Property(type="string")
      */
     protected $PasswdSalt;
-    /**
+    
+	/**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    	protected $History;
+    
+	/**
      * @return int
      */
     public function getID()
@@ -119,6 +127,14 @@ class Account
     {
         return $this->PasswdSaltSalt;
     }
+	
+	/**
+     * @return string
+     */
+    public function getHistory()
+    {
+        return $this->History;
+    }
 
 
     /**
@@ -166,6 +182,14 @@ class Account
     public function setPasswdSalt($PasswdSalt)
     {
         $this->PasswdSalt = $PasswdSalt;
+    }
+    /**
+     * @param string $History
+     */
+    public function setHistory($History)
+    {
+        $History_OLD=$this->getHistory();
+		$this->History = $History_OLD."\n\r".date()." - ".$History;
     }
 
 
