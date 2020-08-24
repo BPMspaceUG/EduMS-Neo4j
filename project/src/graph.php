@@ -5,7 +5,7 @@ namespace EduMS;
 use GraphAware\Neo4j\OGM\Annotations as OGM;
 use GraphAware\Neo4j\OGM\Common\Collection;
 
-// src/Node.php
+// src/graph.php
 
 
 /**
@@ -13,7 +13,7 @@ use GraphAware\Neo4j\OGM\Common\Collection;
  * @OGM\Node(label="Node")
  */
  
-class Node 
+class Graph 
 {
 //BEGIN ID
     /**

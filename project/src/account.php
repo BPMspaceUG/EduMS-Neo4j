@@ -13,7 +13,7 @@ use GraphAware\Neo4j\OGM\Common\Collection;
  * @OGM\Node(label="Account")
  */
  
-class Account extends Node
+class Account extends Graph
 {
 //Begin FirstName
     /**
@@ -128,6 +128,26 @@ class Account extends Node
     }
 //END PasswdHash
 //Functions
+    /**
+     * @param string $Mail
+     * @param string $Passwd
+     */
+    public function __construct($newAccountFirstName,$newAccountLastName,$newAccountLanguage,$newAccountPassword,$newMail)
+	{
+	//$uuid = Uuid::uuid4();
+	$uuid = base64_encode(uniqid(uniqid(),TRUE));
+	$this->setGUID($uuid);
+	$this->setFirstName($newAccountFirstName);
+	$this->setLastName($newAccountLastName);
+	$this->setLanguage($newAccountLanguage);
+	//$uuid = Uuid::uuid4();
+	$uuid = base64_encode(uniqid(uniqid(),TRUE));
+	$this->setPasswdSalt($uuid);
+	$this->setPasswdHash($newAccountPassword,$uuid);
+	$mail = new Mail($newMail);
+	$this->setHistory("Account created by \$User");
+	}
+
     /**
      * @param string $Mail
      * @param string $Passwd
