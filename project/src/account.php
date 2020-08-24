@@ -13,89 +13,15 @@ use GraphAware\Neo4j\OGM\Common\Collection;
  * @OGM\Node(label="Account")
  */
  
-class Account
+class Account extends Node
 {
-    /**
-     * @var int
-	 *
-     * @OGM\GraphId()
-     */
-    protected $id;
-
-    /**
-     * @var string
-          *
-     * @OGM\Property(type="string")
-     */
-    protected $guid;
-
+//Begin FirstName
     /**
      * @var string
      *
      * @OGM\Property(type="string")
      */
     protected $FirstName;
-
-    /**
-     * @var string
-     *
-     * @OGM\Property(type="string")
-     */
-    protected $LastName;
-
-    /**
-     * @var string
-     *
-     * @OGM\Property(type="string")
-     */
-    protected $Language;
-	
-    /**
-     * @var string
-     *
-     * @OGM\Property(type="string")
-     */
-    protected $PasswdHash;
-	
-    /**
-     * @var string
-     *
-     * @OGM\Property(type="string")
-     */
-    protected $PasswdSalt;
-    
-	/**
-     * @var string
-     *
-     * @OGM\Property(type="string")
-     */
-    	protected $History;
-    
-	/**
-     * @return int
-     */
-    public function getID()
-    {
-        return $this->id;
-    }
-
-	/**
-     * @return string
-     */
-    public function getGUID()
-    {
-        return $this->guid;
-    }
-
-	
-    /**
-     * @return string
-     */
-    public function getLastName()
-    {
-        return $this->LastName;
-    }
-
     /**
      * @return string
      */
@@ -103,56 +29,6 @@ class Account
     {
         return $this->FirstName;
     }
-
-    /**
-     * @return string
-     */
-    public function getLanguage()
-    {
-        return $this->Language;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPasswdHash()
-    {
-        return $this->PasswdHash;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPasswdSalt()
-    {
-        return $this->PasswdSaltSalt;
-    }
-	
-	/**
-     * @return string
-     */
-    public function getHistory()
-    {
-        return $this->History;
-    }
-
-
-    /**
-     * @param string $setGUID
-     */
-    public function setGUID($GUID)
-    {
-        $this->guid = $GUID;
-    }
-
-    /**
-     * @param string $LastName
-     */
-    public function setLastName($LastName)
-    {
-        $this->LastName = $LastName;
-    }
-
     /**
      * @param string $FirstName
      */
@@ -160,12 +36,64 @@ class Account
     {
         $this->FirstName = $FirstName;
     }
+//END FirstName
+//BEGIN LastName
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $LastName;
+    /**
+     * @return string
+     */
+    public function getLastName()
+    {
+        return $this->LastName;
+    }
+    /**
+     * @param string $LastName
+     */
+    public function setLastName($LastName)
+    {
+        $this->LastName = $LastName;
+    }
+//END LastName
+//BEGIN Language
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $Language;
+    /**
+     * @return string
+     */
+    public function getLanguage()
+    {
+        return $this->Language;
+    }
     /**
      * @param string $Language
      */
     public function setLanguage($Language)
     {
         $this->Language = $Language;
+    }
+//END Language
+//BEGIN PasswdHash
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $PasswdHash;
+    /**
+     * @return string
+     */
+    public function getPasswdHash()
+    {
+        return $this->PasswdHash;
     }
     /**
      * @param string $Passwd
@@ -176,6 +104,21 @@ class Account
 		$passwdstring =  $Passwd.$PasswdSalt;
         $this->PasswdHash = hash('sha256',$passwdstring);
     }
+//END PasswdHash
+//BEGIN PasswdSalt
+    /**
+     * @var string
+     *
+     * @OGM\Property(type="string")
+     */
+    protected $PasswdSalt;
+    /**
+     * @return string
+     */
+    public function getPasswdSalt()
+    {
+        return $this->PasswdSaltSalt;
+    }
     /**
      * @param string $PasswdSalt
      */
@@ -183,14 +126,18 @@ class Account
     {
         $this->PasswdSalt = $PasswdSalt;
     }
+//END PasswdHash
+//Functions
     /**
-     * @param string $History
+     * @param string $Mail
+     * @param string $Passwd
      */
-    public function setHistory($History)
+    public function login($Mail,$Passwd)
     {
-        $History_OLD=$this->getHistory();
-		$this->History = $History_OLD."\n\r".date()." - ".$History;
+		//get acctount by verified mail
+		//get salt fo account $PasswdSalt= 
+		//$passwdstring =  $Passwd.$PasswdSalt;
+		//$challenge= hash('sha256',$passwdstring);
+        //$this->PasswdHash = hash('sha256',$passwdstring);
     }
-
-
 }
