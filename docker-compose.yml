@@ -12,7 +12,7 @@ services:
         - EduMSphp
 
  EduMSphp:
-    image: 7-fpm-neo4j-php-ogm:latest
+    image: bpmspace/7-fpm-neo4j-php-ogm
     volumes:
         - ./project:/project
     working_dir: /project
