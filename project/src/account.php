@@ -127,6 +127,21 @@ class Account extends Graph
         $this->PasswdSalt = $PasswdSalt;
     }
 //END PasswdHash
+//BEGIN Relation ListMailaddress
+    /**
+     * @var ListMailaddress[]|Collection
+     * 
+     * @OGM\Relationship(type="has_Mail_Address", direction="OUTGOING", collection=true, mappedBy="owner", targetEntity="Mailaddress")
+     */
+    protected $ListMailaddress;
+    /**
+     * @return Mailaddress[]|Collection
+     */
+    public function getListMailaddress()
+    {
+        return $this->ListMailaddress;
+    }
+//END Relation Mailaddress
 //Functions
     /**
      * @param string $Mail
@@ -134,6 +149,7 @@ class Account extends Graph
      */
     public function __construct($newAccountFirstName,$newAccountLastName,$newAccountLanguage,$newAccountPassword,$newMail)
 	{
+	global $entityManager;
 	//$uuid = Uuid::uuid4();
 	$uuid = base64_encode(uniqid(uniqid(),TRUE));
 	$this->setGUID($uuid);
@@ -144,11 +160,13 @@ class Account extends Graph
 	$uuid = base64_encode(uniqid(uniqid(),TRUE));
 	$this->setPasswdSalt($uuid);
 	$this->setPasswdHash($newAccountPassword,$uuid);
-	$mail = new Mail($newMail);
+	$MailA = new MailAdress($newMail);
+	$entityManager->persist($MailA);
+	$entityManager->flush();
+	$this->ListMailaddress = new Collection();
 	$this->setHistory("Account created by \$User");
 	}
-
-    /**
+    /**  
      * @param string $Mail
      * @param string $Passwd
      */

@@ -5,13 +5,13 @@ namespace EduMS;
 use GraphAware\Neo4j\OGM\Annotations as OGM;
 use GraphAware\Neo4j\OGM\Common\Collection;
 
-// src/mail.php
+// src/mailddress.php
 /**
  *
  * @OGM\Node(label="Mail")
  */
  
-class Mail extends Graph
+class MailAdress extends Graph
 {
 //Begin MailAdress
     /**
@@ -23,6 +23,15 @@ class Mail extends Graph
     /**
      * @return string
      */
+	/**
+     * @param string $Mail
+     * @param string $Passwd
+     */
+    public function __construct($newMail)
+	{
+	$this->setMailAdress($newMail);
+	$this->setHistory("Mail created by \$User");
+	}
     public function getMailAdress()
     {
         return $this->MailAdress;
@@ -36,13 +45,5 @@ class Mail extends Graph
     }
 //END MailAdress
 //Functions
-    /**
-     * @param string $Mail
-     * @param string $Passwd
-     */
-    public function __construct($newMail)
-	{
-	$this->setMailAdress($newMail);
-	$this->setHistory("Mail created by \$User");
-	}
+
 }
