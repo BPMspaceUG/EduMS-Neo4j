@@ -18,6 +18,8 @@ return array(
     'Ramsey\\Uuid\\' => array($vendorDir . '/ramsey/uuid/src'),
     'Ramsey\\Collection\\' => array($vendorDir . '/ramsey/collection/src'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
+    'PhpSchool\\Terminal\\' => array($vendorDir . '/php-school/terminal/src'),
+    'PhpSchool\\CliMenu\\' => array($vendorDir . '/php-school/cli-menu/src'),
     'MyCLabs\\Enum\\' => array($vendorDir . '/myclabs/php-enum/src'),
     'Http\\Promise\\' => array($vendorDir . '/php-http/promise/src'),
     'Http\\Message\\' => array($vendorDir . '/php-http/message/src', $vendorDir . '/php-http/message-factory/src'),
@@ -44,4 +46,5 @@ return array(
     'Demo\\' => array($baseDir . '/src'),
     'Clue\\StreamFilter\\' => array($vendorDir . '/clue/stream-filter/src'),
     'Brick\\Math\\' => array($vendorDir . '/brick/math/src'),
+    'Assert\\' => array($vendorDir . '/beberlei/assert/lib/Assert'),
 );

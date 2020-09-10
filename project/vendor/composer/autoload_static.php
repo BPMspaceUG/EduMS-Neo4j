@@ -19,8 +19,10 @@ class ComposerStaticInit2f2f3911e8c2febf79f34c5fe6dfa83a
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        'a4ecaeafb8cfb009ad0e052c90355e98' => __DIR__ . '/..' . '/beberlei/assert/lib/Assert/functions.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '7a11edb9757b1236b1e244135fb044a0' => __DIR__ . '/..' . '/graphaware/neo4j-php-ogm/src/Mapping/Neo4jOGMAnnotations.php',
+        '3107fc387871a28a226cdc8c598a0adb' => __DIR__ . '/..' . '/php-school/cli-menu/src/Util/ArrayUtils.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
     );
 
@@ -45,6 +47,8 @@ class ComposerStaticInit2f2f3911e8c2febf79f34c5fe6dfa83a
         'P' => 
         array (
             'Psr\\Http\\Message\\' => 17,
+            'PhpSchool\\Terminal\\' => 19,
+            'PhpSchool\\CliMenu\\' => 18,
         ),
         'M' => 
         array (
@@ -92,6 +96,10 @@ class ComposerStaticInit2f2f3911e8c2febf79f34c5fe6dfa83a
         'B' => 
         array (
             'Brick\\Math\\' => 11,
+        ),
+        'A' => 
+        array (
+            'Assert\\' => 7,
         ),
     );
 
@@ -143,6 +151,14 @@ class ComposerStaticInit2f2f3911e8c2febf79f34c5fe6dfa83a
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'PhpSchool\\Terminal\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-school/terminal/src',
+        ),
+        'PhpSchool\\CliMenu\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-school/cli-menu/src',
         ),
         'MyCLabs\\Enum\\' => 
         array (
@@ -251,6 +267,10 @@ class ComposerStaticInit2f2f3911e8c2febf79f34c5fe6dfa83a
         'Brick\\Math\\' => 
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
+        ),
+        'Assert\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/beberlei/assert/lib/Assert',
         ),
     );
 

@@ -2,6 +2,8 @@
 
 use EduMS\Account;
 use EduMS\MailAdress;
+use PhpSchool\CliMenu\CliMenu;
+use PhpSchool\CliMenu\Builder\CliMenuBuilder;
 
 require_once 'bootstrap.php';
 //echo $argc;
@@ -22,5 +24,23 @@ $entityManager->persist($Account);
 $entityManager->flush();
 
 $GUID = $Account->getGUID();
+global $GUID_CMD;
 $GUID_CMD = "php listAccount.php $GUID\n\r";
-echo "$GUID_CMD";
+
+$itemCallable = function (CliMenu $menu) {
+	echo shell_exec("php listAccounts.php");
+};
+
+$menu = (new CliMenuBuilder)
+    ->setTitle('Basic CLI Menu')
+    ->addItem('First Item', $itemCallable)
+    ->addItem('Second Item', $itemCallable)
+    ->addItem('Third Item', $itemCallable)
+    ->addLineBreak('-')
+    ->setBorder(1, 2, 'yellow')
+    ->setPadding(2, 4)
+    ->setMarginAuto()
+    ->build();
+
+
+$menu->open();

@@ -8,4 +8,4 @@ foreach ($accounts as $account) {
     echo sprintf("GUID: %s\n", $account->getGUID());
     echo sprintf("Lastname: %s\n", $account->getLastName());
     echo sprintf("Firstname: %s\n", $account->getFirstName());
-}
+} 
