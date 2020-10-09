@@ -1,0 +1,4 @@
+:ID|GUID:STRING|FirstName:STRING|LastName:STRING|Language:STRING|PasswdHash:STRING|PasswdSalt:STRING|History:STRING
+1|2345678|John|Doe|fr|123|456|create
+2|45678|Jane|Doe|en|234|567|create
+3|ldkft7895|rob|coolig|de|345|678|create

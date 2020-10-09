@@ -7,7 +7,7 @@ services:
         - "8099:80"
     volumes:
         - ./project:/project
-        - ./dockerconf/site.conf:/etc/nginx/conf.d/default.conf
+        - ./dockerconf/nginx/site.conf:/etc/nginx/conf.d/default.conf
     links:
         - EduMSphp
 
@@ -18,7 +18,7 @@ services:
     working_dir: /project
 
  EduMSNeo4j:
-  image: neo4j:3.5
+  image: neo4j:latest
   ports:
     - 7474:7474
     - 7687:7687
@@ -30,3 +30,7 @@ services:
     - ./neo4j/plugins:/plugins
   environment: 
     - NEO4J_AUTH=neo4j/54657890at
+    - NEO4J_apoc_export_file_enabled=true
+    - NEO4J_apoc_import_file_enabled=true
+    - NEO4J_apoc_import_file_use__neo4j__config=true
+    - NEO4JLABS_PLUGINS=\[\"apoc\"\]
