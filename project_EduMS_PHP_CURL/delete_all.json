@@ -1,0 +1,11 @@
+{
+    "statements": [
+        {
+            "statement": "MATCH (n) DETACH DELETE n",
+            "parameters": {
+                "decisionId": "1",
+                "criterionId": "1"
+            }
+        }
+    ]
+}

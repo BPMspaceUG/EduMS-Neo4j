@@ -1,0 +1,7 @@
+HTTP/1.1 200 OK
+Date: Fri, 09 Oct 2020 08:22:03 GMT
+Access-Control-Allow-Origin: *
+Content-Type: application/json
+Content-Length: 946
+
+{"results":[{"columns":["r","n1","n2"],"data":[{"row":[{"since":2018},{"Language":"fr","PasswdHash":"123","FirstName":"John","GUID":"2345678","PasswdSalt":"456","LastName":"Doe","History":"create","__csv_id":1},{"Language":"de","PasswdHash":"345","FirstName":"rob","GUID":"ldkft7895","PasswdSalt":"678","LastName":"coolig","History":"create","__csv_id":3}],"meta":[{"id":1,"type":"relationship","deleted":false},{"id":3,"type":"node","deleted":false},{"id":0,"type":"node","deleted":false}]},{"row":[{"since":2016},{"Language":"fr","PasswdHash":"123","FirstName":"John","GUID":"2345678","PasswdSalt":"456","LastName":"Doe","History":"create","__csv_id":1},{"Language":"en","PasswdHash":"234","FirstName":"Jane","GUID":"45678","PasswdSalt":"567","LastName":"Doe","History":"create","__csv_id":2}],"meta":[{"id":0,"type":"relationship","deleted":false},{"id":3,"type":"node","deleted":false},{"id":4,"type":"node","deleted":false}]}]}],"errors":[]}

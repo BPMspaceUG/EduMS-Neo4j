@@ -1,36 +1,65 @@
 version: '2'
 services:
 
- EduMSweb:
+ EduMS_web:
     image: nginx:latest
     ports:
-        - "8099:80"
+        - "8090:80"
     volumes:
-        - ./project:/project
-        - ./dockerconf/nginx/site.conf:/etc/nginx/conf.d/default.conf
+        - ./project_EduMS_PHP_CURL:/project
+        - ./dockerconf/nginx/site_EduMS.conf:/etc/nginx/conf.d/default.conf
+    working_dir: /project
     links:
-        - EduMSphp
+        - EduMS_php
 
- EduMSphp:
+ SQMSExport_web:
+    image: nginx:latest
+    ports:
+        - "8091:80"
+    volumes:
+        - ./project_SQMS_export:/project/
+        - ./dockerconf/nginx/site_SQMSExport.conf:/etc/nginx/conf.d/default.conf
+    working_dir: /project
+    links:
+        - SQMSExport_php
+        
+ EduMS_php:
     image: bpmspace/7-fpm-neo4j-php-ogm
     volumes:
-        - ./project:/project
+        - ./project_EduMS_PHP_CURL:/project/
     working_dir: /project
 
+ SQMSExport_php:
+    image: bpmspace/7-fpm-neo4j-php-ogm
+    volumes:
+        - ./project_SQMS_export:/project/
+    working_dir: /project
+    
  EduMSNeo4j:
   image: neo4j:latest
   ports:
     - 7474:7474
     - 7687:7687
   volumes:
-    - ./neo4j/conf:/conf
-    - ./neo4j/data:/data
+    - ./neo4j/conf:/var/lib/neo4j/conf
+    - ./neo4j/data:/var/lib/neo4j/data
+    - ./neo4j/logs:/var/lib/neo4j/logs
     - ./neo4j/import:/import
-    - ./neo4j/logs:/logs
-    - ./neo4j/plugins:/plugins
+    - ./neo4j/plugins:/var/lib/neo4j/plugins
+    - ./dockerconf/neo4j/apoc-4.1.0.1-all.jar:/var/lib/neo4j/plugins/apoc-4.1.0.1-all.jar
   environment: 
     - NEO4J_AUTH=neo4j/54657890at
     - NEO4J_apoc_export_file_enabled=true
     - NEO4J_apoc_import_file_enabled=true
+    - NEO4J_apoc_import_url_enabled=true
     - NEO4J_apoc_import_file_use__neo4j__config=true
     - NEO4JLABS_PLUGINS=\[\"apoc\"\]
+
+ EduMSSFTP:
+    image: atmoz/sftp
+    command: developer:54657890at:101:101
+    ports:
+        - "2222:22"
+    volumes:
+    - ./project_EduMS_PHP_CURL:/home/developer/EduMS
+    - ./project_SQMS_export:/home/developer/SQMSexport/

@@ -1,0 +1,11 @@
+{
+    "statements": [
+        {
+            "statement": "LOAD CSV WITH HEADERS FROM \"file:///question.csv\" AS line FIELDTERMINATOR '|' MERGE (:QuestionContainer {ID: line.ID, GUID: line.GUID, History: line.History})",
+            "parameters": {
+                "decisionId": "1",
+                "criterionId": "1"
+            }
+        }
+    ]
+}

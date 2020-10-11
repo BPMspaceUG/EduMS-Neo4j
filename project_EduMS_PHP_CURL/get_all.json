@@ -1,0 +1,11 @@
+{
+    "statements": [
+        {
+            "statement": "MATCH (n1)-[r]->(n2) RETURN r, n1, n2 LIMIT 25",
+            "parameters": {
+                "decisionId": "1",
+                "criterionId": "1"
+            }
+        }
+    ]
+}
