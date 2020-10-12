@@ -1,0 +1,12 @@
+{
+    "statements": [
+        {
+            "statement": "CREATE CONSTRAINT ON (qc:QuestionContainer) ASSERT qc._SQMS_ID_with_offset is UNIQUE;CREATE CONSTRAINT ON (la:Language) ASSERT la._SQMS_ID_with_offset is UNIQUE;",
+            ,
+            "parameters": {
+                "decisionId": "1",
+                "criterionId": "1"
+            }
+        }
+    ]
+}

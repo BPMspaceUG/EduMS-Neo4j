@@ -53,7 +53,11 @@ services:
     - NEO4J_apoc_import_file_enabled=true
     - NEO4J_apoc_import_url_enabled=true
     - NEO4J_apoc_import_file_use__neo4j__config=true
+    - NEO4J_dbms.security.allow_csv_import_from_file_urls=true
     - NEO4JLABS_PLUGINS=\[\"apoc\"\]
+  links:
+    - SQMSExport_php
+    - SQMSExport_web
 
  EduMSSFTP:
     image: atmoz/sftp

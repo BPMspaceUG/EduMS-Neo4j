@@ -1,7 +1,7 @@
 {
     "statements": [
         {
-            "statement": "LOAD CSV WITH HEADERS FROM \"file:///question.csv\" AS line FIELDTERMINATOR '|' MERGE (:QuestionContainer {ID: line.ID, GUID: line.GUID, History: line.History})",
+            "statement": "LOAD CSV WITH HEADERS FROM \"http://SQMSExport_web/question.csv\" AS line FIELDTERMINATOR '|' MERGE (:QuestionContainer {_SQMS_ID_with_offset: line.QC_SQMS_ID, GUID: line.QC_GUID, History: line.QC_History}) MERGE (:Language {_SQMS_ID_with_offset: line.LA_SQMS_ID, GUID: line.LA_GUID,Language: line.LA_Language,LanguageShort: line.LA_language_short, History: line.LA_History})",
             "parameters": {
                 "decisionId": "1",
                 "criterionId": "1"
