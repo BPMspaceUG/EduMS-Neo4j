@@ -67,3 +67,9 @@ services:
     volumes:
     - ./project_EduMS_PHP_CURL:/home/developer/EduMS
     - ./project_SQMS_export:/home/developer/SQMSexport/
+    
+ EduMSMailhog:
+  image: mailhog/mailhog
+  ports: 
+    - 1025:1025 # smtp server
+    - 8025:8025 # web ui

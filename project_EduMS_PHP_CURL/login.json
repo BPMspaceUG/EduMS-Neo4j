@@ -1,7 +1,7 @@
 {
     "statements": [
         {
-            "statement": "MATCH (n1)-[r]->(n2) RETURN r, n1, n2 LIMIT 5000",
+            "statement": "MATCH (LoginAgentMail:Mail)<-[:has_Mail]- (LoginAgent:Person) return LoginAgentMail",
             "parameters": {
                 "decisionId": "1",
                 "criterionId": "1"
